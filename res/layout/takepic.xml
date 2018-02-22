@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <SurfaceView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:id = "@+id/PreviewView"
+        />
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop="210dp"
+        android:id = "@+id/PreviewBT"
+        android:text = "開相機" />
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft = "100dp"
+        android:id = "@+id/closePreviewBT"
+        android:text = "關相機" />
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft = "200dp"
+        android:text = "拍照"
+        android:id = "@+id/takePicBT" />
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop="260dp"
+        android:id = "@+id/GalleryShowBT" 
+        android:text = "展示相冊"/>
+    <ImageView
+        android:id="@+id/showImag"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="300dp" />
+</RelativeLayout>

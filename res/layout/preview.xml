@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@android:drawable/dialog_frame"
+	android:gravity="bottom"
+	android:orientation="vertical"
+	android:layout_height="708px"
+	android:layout_width="944px"
+	android:id="@+id/previewLayout">
+	<ImageView android:id="@+id/imagePicture" android:layout_height="match_parent" android:layout_width="match_parent" android:src="@drawable/ic_loading_icon" android:scaleType="center" />
+</LinearLayout>

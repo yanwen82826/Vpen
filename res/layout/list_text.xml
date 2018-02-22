@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="horizontal"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+<TextView
+android:id="@+id/listUserId"
+android:layout_width="wrap_content"
+android:layout_height="60dip"
+android:gravity="center_vertical"
+android:textSize="24dip"
+></TextView>
+
+<!-- checkBox -->
+<CheckBox
+    android:id="@+id/checkBox"
+    android:layout_width="wrap_content"
+    android:layout_height="60dip"
+    android:gravity="center_vertical"
+    android:textSize="24dip"
+    android:layout_marginLeft="10dip">
+</CheckBox>
+
+<!-- 使用者名稱 -->
+<TextView
+android:id="@+id/listUserName"
+android:layout_width="wrap_content"
+android:layout_height="60dip"
+android:gravity="center_vertical"
+android:textSize="24dip"
+android:paddingLeft="20dip"
+></TextView>
+
+<!-- 註記量總數 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="wrap_content"
+android:layout_height="60dip"
+>
+<!-- 文字註記量 -->
+<TextView
+android:id="@+id/annotationText"
+android:layout_width="wrap_content"
+android:layout_height="20dip"
+android:gravity="center_vertical"
+android:textSize="12dip"
+android:paddingLeft="20dip"
+android:text="文字註記量:"
+></TextView>
+<!-- 圖片註記量 -->
+<TextView
+android:id="@+id/annotationImage"
+android:layout_width="wrap_content"
+android:layout_height="20dip"
+android:gravity="center_vertical"
+android:textSize="12dip"
+android:paddingLeft="20dip"
+android:text="圖片註記量:"
+></TextView>
+<!-- 錄音量 -->
+<TextView
+android:id="@+id/annotationRecord"
+android:layout_width="wrap_content"
+android:layout_height="20dip"
+android:gravity="center_vertical"
+android:textSize="12dip"
+android:paddingLeft="20dip"
+android:text="        錄音量:"
+></TextView>
+</LinearLayout>
+
+<!-- 最新同步時間點 -->
+<TextView
+android:id="@+id/listSyncTime"
+android:layout_width="wrap_content"
+android:layout_height="60dip"
+android:gravity="center_vertical"
+android:textSize="12dip"
+android:paddingLeft="20dip"
+android:layout_marginTop="5dip"
+></TextView>
+
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="empty_string"></string>
+	<string name="note">標註</string>
+	<string name="app_name">VPenSystem</string>
+	<!-- <string name="app_name">VPen e-Learner</string> -->
+	<string name="user_name">stu004</string>
+</resources>

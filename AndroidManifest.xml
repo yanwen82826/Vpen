@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.thirdEdition.geometerplus.zlibrary.ui.android" android:versionCode="10102" android:versionName="1.1.2" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="12" />
+	<supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true" />
+	<!--  預設  -->
+	<!--  <uses-permission android:name="android.permission.INTERNET" />  -->
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<!--  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  -->
+	<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+	
+	<!--  這兩個是上面跟下面都需要的  -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	
+	<!--  pervasync_android_lib  -->
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+	
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.RECORD_VIDEO"/>
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.FLASHLIGHT" />
+	<uses-feature android:name="android.hardware.camera" android:required="false" />
+ 	<uses-feature android:name="android.hardware.camera.autofocus" />
+ 	<uses-feature android:name="android.hardware.camera.flash" />
+ 	
+
+	<application android:name="org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication" android:icon="@drawable/fbreader" android:label="@string/app_name">
+	    <service android:name="org.geometerplus.android.fbreader.MyService" /><!--  服務 -->
+		<activity android:name="org.geometerplus.zlibrary.ui.android.library.BugReportActivity" android:label="FBReader crash" android:configChanges="orientation|keyboardHidden" />
+		<service android:name="org.geometerplus.android.fbreader.api.ApiService">
+			<intent-filter>
+				<action android:name="android.fbreader.action.API" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</service>
+		<!-- 新增 takepicture 以及 filezip -->
+		<activity android:name ="org.geometerplus.android.fbreader.TakePicture" ></activity>
+		<activity android:name ="org.geometerplus.android.fbreader.FileZip"></activity>
+		<activity android:name="org.geometerplus.android.fbreader.Login" android:label="@string/app_name" android:theme="@style/AppTheme.Light" android:screenOrientation="sensorLandscape">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+	    </activity>
+		<activity android:name="org.geometerplus.android.fbreader.FBReader" android:launchMode="singleTask" android:icon="@drawable/fbreader" android:label="@string/app_name" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:host="" android:scheme="file" />
+				<data android:pathPattern=".*\\.epub" />
+				<data android:pathPattern=".*\\.oeb" />
+				<data android:pathPattern=".*\\.fb2" />
+				<data android:pathPattern=".*\\.fb2\\.zip" />
+				<data android:pathPattern=".*\\.mobi" />
+				<data android:pathPattern=".*\\.prc" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:host="" android:scheme="file" android:mimeType="text/plain" />
+				<data android:pathPattern=".*\\.epub" />
+				<data android:pathPattern=".*\\.oeb" />
+				<data android:pathPattern=".*\\.fb2" />
+				<data android:pathPattern=".*\\.mobi" />
+				<data android:pathPattern=".*\\.prc" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="content" android:pathPattern=".*\\.fb2" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="" android:scheme="file" />
+				<data android:mimeType="application/epub+zip" />
+				<data android:mimeType="application/x-pilot-prc" />
+				<data android:mimeType="application/x-mobipocket-ebook" />
+				<data android:mimeType="application/x-fictionbook+xml" />
+				<data android:mimeType="application/x-fictionbook" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>
+		<activity android:name="org.geometerplus.zlibrary.core.dialogs.CameraActivity"/>
+		<activity android:name="org.geometerplus.zlibrary.core.dialogs.myCameraActivity"/>
+		<activity android:name="org.geometerplus.android.fbreader.CancelActivity" android:theme="@android:style/Theme.Dialog" android:configChanges="orientation|keyboardHidden"/>
+		<activity android:name="org.geometerplus.android.fbreader.image.ImageViewActivity" android:process=":imageView" android:configChanges="orientation|keyboardHidden"/>
+		<activity android:name="org.geometerplus.android.fbreader.BookInfoActivity" android:configChanges="orientation|keyboardHidden" android:process=":library"/>
+		<service android:name="org.geometerplus.android.fbreader.library.InitializationService" android:process=":library" />
+		<receiver android:name="org.geometerplus.android.fbreader.library.KillerCallback" android:process=":library" />
+		<activity android:name="org.geometerplus.android.fbreader.library.LibraryTopLevelActivity" android:launchMode="singleTask" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="fbreader.library.intent.FOUND" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>
+		<activity android:name="org.geometerplus.android.fbreader.library.LibraryTreeActivity" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>
+		<activity android:name="org.geometerplus.android.fbreader.library.FileManager" android:process=":library" android:configChanges="orientation|keyboardHidden"/>
+		<activity android:name="org.geometerplus.android.fbreader.TOCActivity" android:configChanges="orientation|keyboardHidden" />
+		<activity android:name="org.geometerplus.android.fbreader.TOCStudentActivity" android:configChanges="orientation|keyboardHidden" />
+		<activity android:name="org.geometerplus.android.fbreader.BookmarksActivity" android:launchMode="singleTask" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>
+		<activity android:name="org.geometerplus.android.fbreader.BookmarkEditActivity" android:theme="@android:style/Theme.Dialog" android:configChanges="orientation|keyboardHidden" />
+		<activity android:name="org.geometerplus.android.fbreader.preferences.PreferenceActivity" android:configChanges="orientation|keyboardHidden" />
+		<activity android:name="org.geometerplus.android.fbreader.preferences.EditBookInfoActivity" android:process=":library" android:configChanges="orientation|keyboardHidden" />
+		<activity android:name="org.geometerplus.android.fbreader.network.BookDownloader" android:process=":bookDownloader" android:theme="@android:style/Theme.NoDisplay">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="*" android:scheme="http" />
+				<data android:pathPattern=".*\\.epub" />
+				<data android:pathPattern=".*\\.oeb" />
+				<data android:pathPattern=".*\\.fb2" />
+				<data android:pathPattern=".*\\.fb2\\.zip" />
+				<data android:pathPattern=".*\\.mobi" />
+				<data android:pathPattern=".*\\.prc" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="*" android:scheme="http" />
+				<data android:mimeType="application/epub+zip" />
+				<data android:mimeType="application/x-pilot-prc" />
+				<data android:mimeType="application/x-mobipocket-ebook" />
+				<data android:mimeType="application/x-fictionbook+xml" />
+				<data android:mimeType="application/x-fictionbook" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="*rus.ec" android:mimeType="application/zip" android:scheme="http" />
+				<data android:host="lib.ololo.cc" android:mimeType="application/zip" android:scheme="http" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="*" android:scheme="epub" />
+			</intent-filter>
+		</activity>
+		<service android:name="org.geometerplus.android.fbreader.network.BookDownloaderService" android:process=":bookDownloader" />
+		<activity android:name="org.geometerplus.android.fbreader.network.NetworkSearchActivity" android:process=":networkLibrary" android:theme="@android:style/Theme.NoDisplay">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>
+		<activity android:name="org.geometerplus.android.fbreader.network.NetworkLibraryActivity" android:process=":networkLibrary" android:launchMode="singleTask" android:configChanges="orientation|keyboardHidden">
+			<meta-data android:name="android.app.default_searchable" android:value="org.geometerplus.android.fbreader.network.NetworkSearchActivity" />
+		</activity>
+		<activity android:name="org.geometerplus.android.fbreader.network.AuthenticationActivity" android:process=":networkLibrary" android:configChanges="orientation|keyboardHidden" android:theme="@android:style/Theme.Dialog"/>
+		<activity android:name="org.geometerplus.android.fbreader.network.AddCustomCatalogActivity" android:process=":networkLibrary" android:configChanges="orientation|keyboardHidden" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="*" android:scheme="opds" />
+			</intent-filter>
+		</activity>
+		<activity android:name="org.geometerplus.android.fbreader.network.NetworkCatalogActivity" android:process=":networkLibrary" android:configChanges="orientation|keyboardHidden" />
+		<service android:name="org.geometerplus.android.fbreader.network.ItemsLoadingService" android:process=":networkLibrary" />
+		<activity android:name="org.geometerplus.android.fbreader.network.NetworkBookInfoActivity" android:process=":networkLibrary" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="*" android:scheme="fbreader" />
+			</intent-filter>
+		</activity>
+		    
+		<receiver android:name="org.geometerplus.android.fbreader.network.BookDownloaderCallback" android:process=":networkLibrary" />
+		<service android:name="org.geometerplus.android.fbreader.network.LibraryInitializationService" android:process=":networkLibrary" />
+	</application>
+</manifest>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:orientation="vertical">
+    <TextView android:textSize="20dp" android:id="@+id/TextView01" android:layout_height="100dp" android:text="" android:layout_gravity="center" android:layout_width="match_parent"></TextView>
+	<LinearLayout
+		android:orientation="horizontal" android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center_horizontal">
+		<TextView android:layout_width="wrap_content" android:text="用户名："
+			android:textSize="20dp" android:layout_height="wrap_content" />
+		<EditText android:layout_height="50dip" android:layout_width="200dip" android:id="@+id/user" android:singleLine="true" android:maxLength="6" android:text="stu016"/>
+	</LinearLayout>
+	<LinearLayout
+		android:orientation="horizontal" android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center_horizontal">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="20dp" android:text="密    碼："/>
+		<EditText android:layout_width="200dip"
+			android:layout_height="50dip" android:password="true" android:id="@+id/pass"  android:maxLength="6" android:singleLine="true" android:text="stu016"/>
+	</LinearLayout>
+	<Button android:text="確認" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="300dp" android:layout_gravity="center_horizontal"></Button>
+	<TextView android:layout_gravity="center_horizontal" android:textSize="20dp" android:layout_width="wrap_content" android:text="請輸入你的帳號與密碼，例如：stu001(你的座號)" android:id="@+id/TextView02" android:layout_height="30dp"></TextView>
+	<TextView android:text="Version:20120605" android:id="@+id/textView1" android:textSize="10dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center_horizontal"></TextView>
+</LinearLayout>
